@@ -15,13 +15,13 @@ class Query(graphene.ObjectType):
     def resolve_all_business(root, info):
         return Business.objects.all()
 
-    def resolve_business_with_tags_city(root, info, tags, city):
+    def resolve_business_with_tags_city(root, info, tags=None, city=None):
         if tags is None and city is None: 
             return None 
         elif tags is None:
-            return Business.objects.filter(tags=tags)
+            return Business.objects.filter(city=city) # right now it's only one tag, we need to separate
         elif city is None: 
-            return Business.objects.filter(city=city)
+            return Business.objects.filter(tags=tags) # city is probably fine for now
         else:  
             return Business.objects.filter(tags=tags, city=city) 
     
