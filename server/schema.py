@@ -9,13 +9,13 @@ class BusinessType(DjangoObjectType):
         # TODO: Or we can just choose the fields to return here
 
 class Query(graphene.ObjectType):
-    all_stores = graphene.List(StoresType)
-    store_with_tags_city = graphene.List(StoresType, tags=graphene.String(), city=graphene.String())
+    all_business = graphene.List(BusinessType)
+    business_with_tags_city = graphene.List(BusinessType, tags=graphene.String(), city=graphene.String())
 
-    def resolve_all_stores(root, info):
+    def resolve_all_business(root, info):
         return Business.objects.all()
 
-    def resolve_store_with_tags_city(root, info, tags, city):
+    def resolve_business_with_tags_city(root, info, tags, city):
         if tags is None and city is None: 
             return None 
         elif tags is None:
