@@ -1,5 +1,6 @@
 .DS_Store
 .vscode/
+secret_key.py
 
 # Django #
 *.log
