@@ -1,7 +1,7 @@
 import graphene
 from graphene_django import DjangoObjectType
 
-from server.businesses.models import Business
+from server.business.models import Business
 class BusinessType(DjangoObjectType):
     # TODO: Add the different fields for businesses here! 
     class Meta:
