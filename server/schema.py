@@ -11,7 +11,6 @@ class BusinessType(DjangoObjectType):
 class Query(graphene.ObjectType):
     all_stores = graphene.List(StoresType)
     store_with_tags_city = graphene.List(StoresType, tags=graphene.String(), city=graphene.String())
-    # store_near_city = graphene.List(StoresType)
 
     def resolve_all_stores(root, info):
         return Business.objects.all()
